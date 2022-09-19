@@ -1,0 +1,10 @@
+/bin/
+/res/
+
+# Java related
+target/**
+*.jar
+*.war
+*.ear
+*.class
+
