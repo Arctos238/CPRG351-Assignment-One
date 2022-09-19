@@ -2,10 +2,10 @@ package ca.sait.applicationDriver;
 
 import java.util.Collections;
 
+import ca.sait.managers.InputOutputParseManager;
 import ca.sait.shapeDomain.Cone;
 import ca.sait.shapeDomain.Cylinder;
 import ca.sait.shapeDomain.Shape;
-import ca.sait.testingApplication.TestingManager;
 import ca.sait.utilities.BaseAreaCompare;
 import ca.sait.utilities.SortingCollection;
 import ca.sait.utilities.VolumeCompare;
@@ -18,7 +18,7 @@ public class ApplicationDriver {
 		long start = 0;
 		long stop = 0;
 
-		TestingManager testingManager = new TestingManager();
+		InputOutputParseManager testingManager = new InputOutputParseManager();
 		String[] parsedArgs = testingManager.parseArgs(args);
 
 		try {

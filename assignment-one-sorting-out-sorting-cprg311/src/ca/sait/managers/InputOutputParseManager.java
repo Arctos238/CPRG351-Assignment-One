@@ -1,4 +1,4 @@
-package ca.sait.testingApplication;
+package ca.sait.managers;
 
 
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import ca.sait.shapeDomain.Shape;
 
-public class TestingManager {
+public class InputOutputParseManager {
 	private final String[] STRING_ARRAY_FILE_NAMES = { "polyfor1", "polyfor2", "polyfor3" };
 
 
