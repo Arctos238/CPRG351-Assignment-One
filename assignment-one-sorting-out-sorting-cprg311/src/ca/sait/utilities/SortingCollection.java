@@ -4,7 +4,20 @@ import java.util.Comparator;
 
 import ca.sait.shapeDomain.Shape;
 
+// Sorting Collection utility which sorts shapes based on the parameters sent through. 
+/**
+ * The Class SortingCollection.
+ */
 public class SortingCollection {
+
+	/**
+	 * Sorts shapes based on the type of sort and comparator selected in the
+	 * arguments
+	 *
+	 * @param shapeArray the shape array
+	 * @param sortType   the sort type
+	 * @param comparator the comparator
+	 */
 	@SuppressWarnings("unused")
 	public static void sort(Shape[] shapeArray, String sortType, Comparator<Shape> comparator) {
 		switch (sortType.charAt(0)) {
@@ -30,6 +43,12 @@ public class SortingCollection {
 		}
 	}
 
+	/**
+	 * Sorts shapes based on the type of sort selected in the arguments
+	 *
+	 * @param shapeArray the shape array
+	 * @param sortType   the sort type
+	 */
 	@SuppressWarnings("unused")
 	public static void sort(Shape[] shapeArray, String sortType) {
 		switch (sortType.charAt(0)) {
