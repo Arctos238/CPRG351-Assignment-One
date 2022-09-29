@@ -1,6 +1,5 @@
 package ca.sait.managers;
 
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,10 +9,24 @@ import java.util.Scanner;
 
 import ca.sait.shapeDomain.Shape;
 
-public class InputOutputParseManager {
+/**
+ * 
+ * Three methods that help manage to parse information and generate the array
+ * for application driver
+ *
+ */
+public class InputParseManager {
 	private final String[] STRING_ARRAY_FILE_NAMES = { "polyfor1", "polyfor2", "polyfor3" };
 
-
+	/**
+	 * 
+	 * @param args the main args from the driver program
+	 * @return returns the args parsed
+	 * 
+	 *         Takes the args that are sent through the main method and parses them
+	 *         so that can be read in the main application of the program. If the
+	 *         arguments are not in the correct format it will send back a message.
+	 */
 	public String[] parseArgs(String[] args) {
 		String[] parsedArgs = new String[3];
 
@@ -80,7 +93,15 @@ public class InputOutputParseManager {
 	}
 
 	/**
-	 * This method loads the text file selected into an array of Shapes
+	 * 
+	 * @param fileName where the location of the file the shape file that needs to
+	 *                 be located
+	 * @return The shape array filled with all the shapes
+	 * 
+	 *         Uses reflection to generate each shape based on the type of shape string
+	 *         passed in the file and the creates that shape passed on the parameters in the file.
+	 *         Then it will put that shape type into a shape array.
+	 * 
 	 */
 	public Shape[] loadShapesIntoArray(String fileName) {
 		try {
@@ -115,9 +136,6 @@ public class InputOutputParseManager {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,7 +158,7 @@ public class InputOutputParseManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 }

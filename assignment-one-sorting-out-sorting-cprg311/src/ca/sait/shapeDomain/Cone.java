@@ -1,5 +1,8 @@
 package ca.sait.shapeDomain;
 
+/**
+ *
+ */
 public class Cone extends Shape {
 	private double radius;
 	private double volume;

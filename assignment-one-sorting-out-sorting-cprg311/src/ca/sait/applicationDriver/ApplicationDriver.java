@@ -1,15 +1,18 @@
 package ca.sait.applicationDriver;
 
-import java.util.Collections;
-
-import ca.sait.managers.InputOutputParseManager;
-import ca.sait.shapeDomain.Cone;
-import ca.sait.shapeDomain.Cylinder;
+import ca.sait.managers.InputParseManager;
 import ca.sait.shapeDomain.Shape;
 import ca.sait.utilities.BaseAreaCompare;
 import ca.sait.utilities.SortingCollection;
 import ca.sait.utilities.VolumeCompare;
 
+/**
+ * Main Driver for the program
+ * 
+ * @author Jacque Pointer, Huy Hoang Pham, Evan Stene, Benmarc Jay Agulto
+ * @param Args Three Arguments file name, sort by type and sorting algorithm.
+ * @version 28th September 2022
+ */
 public class ApplicationDriver {
 	public static void main(String[] args) {
 		String fileName = "";
@@ -18,7 +21,8 @@ public class ApplicationDriver {
 		long start = 0;
 		long stop = 0;
 
-		InputOutputParseManager testingManager = new InputOutputParseManager();
+		InputParseManager testingManager = new InputParseManager();
+
 		String[] parsedArgs = testingManager.parseArgs(args);
 
 		try {
@@ -29,8 +33,10 @@ public class ApplicationDriver {
 			System.out.println("Program Teriminated because a wrong value was passed into the arguments");
 		}
 
+		// Loads shapes into an array
 		Shape[] shapesArray = testingManager.loadShapesIntoArray(fileName);
 
+		// Send through the array to be sorted based on the sort type
 		switch (compareType.charAt(0)) {
 		case 'A':
 
@@ -59,6 +65,7 @@ public class ApplicationDriver {
 			}
 
 			break;
+
 		case 'V':
 			VolumeCompare volumeCompare = new VolumeCompare();
 			start = System.currentTimeMillis();
@@ -73,8 +80,8 @@ public class ApplicationDriver {
 
 			break;
 		}
-		
 
+		// Prints out how long the sort took
 		System.out.println("The sort took " + (stop - start) + "ms");
 	}
 }
