@@ -140,31 +140,32 @@ public class InputParseManager {
 
 		} catch (FileNotFoundException e) {
 			System.out.println("File does not exist. Please make sure the file is in the system.");
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			System.out.println("Invalid class. The class name does not exist.");
-			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
 			System.out.println("Method does not exist.");
-			e.printStackTrace();
+			
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			System.out.println("Object cannot be instantiated.");
-			e.printStackTrace();
+			
 		} catch (IllegalAccessException e) {
 			System.out.println("Method cannot reach the object.");
-			e.printStackTrace();
+			
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid argument.");
-			e.printStackTrace();
+			
 		} catch (InvocationTargetException e) {
 			System.out.println("Invoked method or constructor");
-			e.printStackTrace();
+			
 		} catch (NullPointerException e) {
 			System.out.println("Invalid input, please enter an existing file name");
-			e.printStackTrace();
+			
+		} catch (Exception e) 
+		{
+			System.out.println("");
 		}
 
 		return null;
