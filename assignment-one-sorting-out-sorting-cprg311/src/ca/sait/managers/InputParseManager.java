@@ -104,10 +104,12 @@ public class InputParseManager {
 	 * 
 	 */
 	public Shape[] loadShapesIntoArray(String fileName) {
-		//removes the quotation marks on the input file
-		String defFileName = fileName.replace("\"", "");
+		
 		
 		try {
+			//removes the quotation marks on the input file
+			String defFileName = fileName.replace("\"", "");
+			
 			Scanner inputScanner = new Scanner(new FileReader(defFileName));
 
 			Shape[] shapesArray = new Shape[inputScanner.nextInt()];
@@ -160,6 +162,8 @@ public class InputParseManager {
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (NullPointerException e){
+			System.out.println("Invalid Input.")
 		}
 
 		return null;
