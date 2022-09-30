@@ -1,0 +1,55 @@
+***************HEAP SORT DESCRIPTION***************
+Heap Sort algorithm is a way to sort elements using the heap[1] data structure. Using heap, we can create a 
+function to move the largest element inside the heap to the root (simply put, comparing the left and right 
+child with the parent, if larger, swap the position. Repeating the process until the largest element is the 
+root, which create a max heap[2] data structure). After that, remove the largest element out of the heap by put 
+it at the end of the array (flag as sorted part of the array). Call the function to re-create a max heap (after
+remove the largest element), repeat the process until there's no element left in the heap. The array we receive
+will be sorted
+
+**PSEUDOCODE
+Heapsort(Array) {
+	n = Array.length
+	for (i from (n/2)-1 to 0){
+		heapify(Array,n,i)
+	}
+	for (i from (n-1) to 1){
+		swap(Array[i], Array[0])
+		heapify(Array,i,0)
+	}
+}
+
+heapify(Array,Length,root) {
+	largest = root
+	left = 2*root + 1
+	right = 2*root + 2
+	
+	if(left < length and Array[left]>Array[largest]) then set largest = left
+	if(right < length and Array[right]>Array[largest]) then set largest = right
+	if largest is not root then swap(Array[root], Array[largest])
+	heapify(Array, length, largest)
+}
+
+**COMPLEXITY ANALYZE
+-The function to create/recreate the max heap data structure (heapify) walk through a binary tree data structure
+from top to bottom of a heap size n. The height of the heap size n is at most log2(n). Therefore, the complexity
+for 'heapify' is O(logn).
+-To instantiate a heap from an array, we need to loop through every element of the array and call the heapify
+method, leading to the time complexity of initialize a heap is O(nlogn)
+-To create a sorted array from taking out the largest element from the heap, 'heapify' method is called n-1 times
+(the last element is taken out directly), leading to the time complexity of it is O(nlogn)
+-All 3 steps does not effect each other time complexity, hence the time complexity of the algorith will be:
+O(logn + nlogn + nlogn) = O(nlogn)
+
+-The space complexity of the algorithm is O(1) since there's no external resource is used (the 'heap' does not
+consume space to store since it's an imaginary data structure, the 'sorted array' is the same with the original
+array)
+
+**COMPLEXITY
+Time Complexity: O(nlogn)
+Space Complexity: O(1)
+
+
+**TERMINOLOGY
+heap: Heap is a tree-liked data structure of an ordered binary tree
+max heap: A heap that satisfy the constraint: Parent node always bigger than child nodes

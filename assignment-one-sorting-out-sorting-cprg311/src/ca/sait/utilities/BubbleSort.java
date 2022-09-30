@@ -13,7 +13,8 @@ public class BubbleSort {
 	 * Instantiates a new bubble sort.
 	 *
 	 * @param shapeArray the shape array
-	 * @param Uses       a comparator<shape type> to compare based of the comparator
+	 * @param comparator the comparator which is used to compare shapes based on the
+	 *                   comparator parsed
 	 */
 	public BubbleSort(Shape[] shapeArray, Comparator<Shape> comp) {
 
