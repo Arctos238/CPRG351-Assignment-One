@@ -134,7 +134,7 @@ public class InputParseManager {
 				Shape shape = (Shape) constructor.newInstance(argList);
 
 				shapesArray[i] = shape;
-				i++;s;
+				i++;
 			}
 			return shapesArray;
 
