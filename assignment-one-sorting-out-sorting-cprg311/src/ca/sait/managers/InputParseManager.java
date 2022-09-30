@@ -104,8 +104,11 @@ public class InputParseManager {
 	 * 
 	 */
 	public Shape[] loadShapesIntoArray(String fileName) {
+		//removes the quotation marks on the input file
+		String defFileName = fileName.replace("\"", "");
+		
 		try {
-			Scanner inputScanner = new Scanner(new FileReader(fileName));
+			Scanner inputScanner = new Scanner(new FileReader(defFileName));
 
 			Shape[] shapesArray = new Shape[inputScanner.nextInt()];
 
