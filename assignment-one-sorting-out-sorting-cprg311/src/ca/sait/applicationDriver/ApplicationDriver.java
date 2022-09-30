@@ -88,6 +88,8 @@ public class ApplicationDriver {
 		}
 
 		// Prints out how long the sort took
-		System.out.println("The sort took " + (stop - start) + "ms");
+		if(shapesArray != null) {
+			System.out.println("The sort took " + (stop - start) + "ms");
+		}
 	}
 }
