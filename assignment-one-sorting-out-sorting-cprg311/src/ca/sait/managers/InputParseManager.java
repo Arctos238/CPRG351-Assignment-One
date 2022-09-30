@@ -163,7 +163,7 @@ public class InputParseManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullPointerException e){
-			System.out.println("Invalid Input.")
+			System.out.println("Invalid input, please enter an existing file name");
 		}
 
 		return null;
