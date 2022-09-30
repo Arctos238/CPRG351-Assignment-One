@@ -79,7 +79,7 @@ public class InputParseManager {
 				case 'Q':
 					parsedArgs[2] = "Q";
 					break;
-				case 'Z':s
+				case 'Z':
 					parsedArgs[2] = "Z";
 					break;
 				default:
