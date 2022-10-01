@@ -34,18 +34,14 @@ public class ApplicationDriver {
 
 		String[] parsedArgs = testingManager.parseArgs(args);
 
-		try {
-			fileName = parsedArgs[0];
-			compareType = parsedArgs[1];
-			sortingType = parsedArgs[2];
-		} catch (NullPointerException ex) {
-			System.out.println("Program Teriminated because a wrong value was passed into the arguments");
-		}
-
 		// Loads shapes into an array
 
 		try {
-
+			
+			fileName = parsedArgs[0];
+			compareType = parsedArgs[1];
+			sortingType = parsedArgs[2];
+			
 			shapesArray = testingManager.loadShapesIntoArray(fileName);
 
 			// Send through the array to be sorted based on the sort type
@@ -98,9 +94,9 @@ public class ApplicationDriver {
 				System.out.println("The sort took " + (stop - start) + "ms");
 			}
 		} catch (NullPointerException e) {
-			System.out.println("Program Terminated");
-
+			System.out.println("Program Teriminated because a wrong values was passed into the arguments");
+		} catch (StringIndexOutOfBoundsException e) {
+			System.out.println("Program Teriminated because a wrong values was passed into the arguments");
 		}
-
 	}
 }

@@ -29,67 +29,74 @@ public class InputParseManager {
 	 */
 	public String[] parseArgs(String[] args) {
 		String[] parsedArgs = new String[3];
+		
+		try {
+			for (String arg : args) {
+				if (arg.toUpperCase().startsWith("-F")) {
+					int indexOfFileName = arg.indexOf("polyfor");
 
-		for (String arg : args) {
-			if (arg.toUpperCase().startsWith("-F")) {
-				int indexOfFileName = arg.indexOf("polyfor");
+					if (indexOfFileName != -1) {
+						parsedArgs[0] = "res/" + arg.substring(indexOfFileName, (indexOfFileName + 8)) + ".txt";
+					} else {
+						System.out.println(
+								"Please enter a correct file path (-f/-F) that contains one of theses three file name:"
+										+ STRING_ARRAY_FILE_NAMES[0] + " or " + STRING_ARRAY_FILE_NAMES[1] + " or "
+										+ STRING_ARRAY_FILE_NAMES[2]);
+					}
 
-				if (indexOfFileName != -1) {
-					parsedArgs[0] = "res/" + arg.substring(indexOfFileName, (indexOfFileName + 8)) + ".txt";
-				} else {
-					System.out.println(
-							"Please enter a correct file path (-f/-F) that contains one of theses three file name:"
-									+ STRING_ARRAY_FILE_NAMES[0] + " or " + STRING_ARRAY_FILE_NAMES[1] + " or "
-									+ STRING_ARRAY_FILE_NAMES[2]);
-				}
+				} else if (arg.toUpperCase().startsWith("-T")) {
+					switch (arg.toUpperCase().charAt(2)) {
 
-			} else if (arg.toUpperCase().startsWith("-T")) {
-				switch (arg.toUpperCase().charAt(2)) {
+					case 'A':
+						parsedArgs[1] = "A";
+						break;
+					case 'H':
+						parsedArgs[1] = "H";
+						break;
+					case 'V':
+						parsedArgs[1] = "V";
+						break;
+					default:
+						System.out.println(
+								"Please enter a correct compare type (-t/-T) that is equal to one of theses values:"
+										+ "v/V (volume) or h/H (height) or a/A (base area)");
+					}
 
-				case 'A':
-					parsedArgs[1] = "A";
-					break;
-				case 'H':
-					parsedArgs[1] = "H";
-					break;
-				case 'V':
-					parsedArgs[1] = "V";
-					break;
-				default:
-					System.out.println(
-							"Please enter a correct compare type (-t/-T) that is equal to one of theses values:"
-									+ "v/V (volume) or h/H (height) or a/A (base area)");
-				}
+				} else if (arg.toUpperCase().startsWith("-S")) {
+					switch (arg.toUpperCase().charAt(2)) {
 
-			} else if (arg.toUpperCase().startsWith("-S")) {
-				switch (arg.toUpperCase().charAt(2)) {
-
-				case 'B':
-					parsedArgs[2] = "B";
-					break;
-				case 'S':
-					parsedArgs[2] = "S";
-					break;
-				case 'I':
-					parsedArgs[2] = "I";
-					break;
-				case 'M':
-					parsedArgs[2] = "M";
-					break;
-				case 'Q':
-					parsedArgs[2] = "Q";
-					break;
-				case 'Z':
-					parsedArgs[2] = "Z";
-					break;
-				default:
-					System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:"
-							+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
-							+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(My Choice Sort");
+					case 'B':
+						parsedArgs[2] = "B";
+						break;
+					case 'S':
+						parsedArgs[2] = "S";
+						break;
+					case 'I':
+						parsedArgs[2] = "I";
+						break;
+					case 'M':
+						parsedArgs[2] = "M";
+						break;
+					case 'Q':
+						parsedArgs[2] = "Q";
+						break;
+					case 'Z':
+						parsedArgs[2] = "Z";
+						break;
+					default:
+						System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:"
+								+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
+								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(My Choice Sort");
+					}
 				}
 			}
+			return parsedArgs;
+		} catch (StringIndexOutOfBoundsException e) {
+			
 		}
-		return parsedArgs;
+		
+		return null;
+		
 	}
 
 	/**
