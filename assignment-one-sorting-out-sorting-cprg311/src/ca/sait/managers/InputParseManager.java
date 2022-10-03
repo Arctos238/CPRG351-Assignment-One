@@ -151,28 +151,20 @@ public class InputParseManager {
 			System.out.println("Invalid class. The class name does not exist.");
 		} catch (NoSuchMethodException e) {
 			System.out.println("Method does not exist.");
-			
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("A call does not have permission to access resource(s).");
 		} catch (InstantiationException e) {
 			System.out.println("Object cannot be instantiated.");
-			
 		} catch (IllegalAccessException e) {
 			System.out.println("Method cannot reach the object.");
-			
 		} catch (IllegalArgumentException e) {
-			System.out.println("Invalid argument.");
-			
+			System.out.println("Invalid argument.");	
 		} catch (InvocationTargetException e) {
 			System.out.println("Invoked method or constructor");
-			
 		} catch (NullPointerException e) {
-			System.out.println("Invalid input, please enter an existing file name");
-			
-		} catch (Exception e) 
-		{
-			System.out.println("");
+			System.out.println("Invalid input, please enter an existing file name");		
+		} catch (Exception e) {
+			System.out.println("An exception was caught.");
 		}
 
 		return null;
