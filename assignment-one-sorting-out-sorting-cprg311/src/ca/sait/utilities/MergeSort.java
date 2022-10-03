@@ -9,7 +9,7 @@ import ca.sait.shapeDomain.Shape;
  * The Class MergeSort.
  */
 public class MergeSort {
-	
+
 	/**
 	 * Instantiates a new merge sort.
 	 *
@@ -30,16 +30,16 @@ public class MergeSort {
 	}
 
 	/**
-	 * Merge sort. Sorts the array using the comparator. 
+	 * Merge sort. Sorts the array using the comparator.
 	 *
-	 * @param array the array
+	 * @param array      the array
 	 * @param comparator the comparator
 	 */
 	private void mergeSort(Shape[] array, Comparator<Shape> comparator) {
 		if (array.length > 1) {
 			// Finds the mid point
 			int mid = array.length / 2;
-			
+
 			// Creates the left side of the array
 			Shape[] left = new Shape[mid];
 			for (int i = 0; i < mid; i++) {
@@ -51,8 +51,9 @@ public class MergeSort {
 			for (int i = mid; i < array.length; i++) {
 				right[i - mid] = array[i];
 			}
-			
-			// Uses recursion to to break down the array until all elements are in there own list
+
+			// Uses recursion to to break down the array until all elements are in there own
+			// list
 			mergeSort(left, comparator);
 			mergeSort(right, comparator);
 
@@ -60,6 +61,8 @@ public class MergeSort {
 			int j = 0;
 			int k = 0;
 
+			// Iterate through the right and left side of the list comparing the elements
+			// for the merge
 			while (i < left.length && j < right.length) {
 				if (comparator.compare(left[i], right[j]) == 100) {
 					array[k] = left[i];
@@ -71,12 +74,16 @@ public class MergeSort {
 				k++;
 			}
 
-			
+			// Iterate through the left side of the list comparing the elements for the
+			// merge
 			while (i < left.length) {
 				array[k] = left[i];
 				i++;
 				k++;
 			}
+
+			// Iterate through the right side of the list comparing the elements for the
+			// merge
 			while (j < right.length) {
 				array[k] = right[j];
 				j++;
@@ -92,8 +99,10 @@ public class MergeSort {
 	 */
 	private void mergeSort(Shape[] array) {
 		if (array.length > 1) {
+			// Finds the mid point
 			int mid = array.length / 2;
 
+			// Creates the left side of the array
 			Shape[] left = new Shape[mid];
 			for (int i = 0; i < mid; i++) {
 				left[i] = array[i];
@@ -103,7 +112,9 @@ public class MergeSort {
 			for (int i = mid; i < array.length; i++) {
 				right[i - mid] = array[i];
 			}
-			
+
+			// Uses recursion to to break down the array until all elements are in there own
+			// list
 			mergeSort(left);
 			mergeSort(right);
 
@@ -111,6 +122,8 @@ public class MergeSort {
 			int j = 0;
 			int k = 0;
 
+			// Iterate through the right and left side of the list comparing the elements
+			// for the merge
 			while (i < left.length && j < right.length) {
 				if (left[i].compareTo(right[j]) == 1) {
 					array[k] = left[i];
@@ -121,12 +134,17 @@ public class MergeSort {
 				}
 				k++;
 			}
-		
+
+			// Iterate through the left side of the list comparing the elements for the
+			// merge
 			while (i < left.length) {
 				array[k] = left[i];
 				i++;
 				k++;
 			}
+
+			// Iterate through the right side of the list comparing the elements for the
+			// merge
 			while (j < right.length) {
 				array[k] = right[j];
 				j++;
