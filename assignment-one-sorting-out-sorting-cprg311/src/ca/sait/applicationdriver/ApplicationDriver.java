@@ -15,7 +15,7 @@ import ca.sait.utilities.VolumeCompare;
  * @version 28th September 2022
  */
 public class ApplicationDriver {
-	private static String errorMessage = "Program Teriminated because a wrong value('s) was passed into the arguments, please follow the following format. \n"
+	private static String errorMessage = "Program Teriminated because a wrong value('s) was passed into the arguments, please follow the following format: \n"
 			+ "Three arguments. -f/F(Followed by the file location), -s/-S(Followed by the Sorting Type), -t/-T(Followed by the compare type).";
 
 	/**
