@@ -39,9 +39,9 @@ public class InputParseManager {
 						parsedArgs[0] = "res/" + arg.substring(indexOfFileName, (indexOfFileName + 8)) + ".txt";
 					} else {
 						System.out.println(
-								"Please enter a correct file path (-f/-F) that contains one of theses three file name:"
+								"Please enter a correct file path (-f/-F) that contains one of theses three file name:\n"
 										+ STRING_ARRAY_FILE_NAMES[0] + " or " + STRING_ARRAY_FILE_NAMES[1] + " or "
-										+ STRING_ARRAY_FILE_NAMES[2]);
+										+ STRING_ARRAY_FILE_NAMES[2] + "\n");
 					}
 
 				} else if (arg.toUpperCase().startsWith("-T")) {
@@ -58,8 +58,8 @@ public class InputParseManager {
 						break;
 					default:
 						System.out.println(
-								"Please enter a correct compare type (-t/-T) that is equal to one of theses values:"
-										+ "v/V (volume) or h/H (height) or a/A (base area)");
+								"Please enter a correct compare type (-t/-T) that is equal to one of theses values:\n"
+										+ "v/V (volume) or h/H (height) or a/A (base area)" + "\n");
 					}
 
 				} else if (arg.toUpperCase().startsWith("-S")) {
@@ -84,9 +84,9 @@ public class InputParseManager {
 						parsedArgs[2] = "Z";
 						break;
 					default:
-						System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:"
+						System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:\n"
 								+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
-								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(My Choice Sort");
+								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(My Choice Sort" + "\n");
 					}
 				}
 			}

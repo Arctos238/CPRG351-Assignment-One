@@ -16,6 +16,8 @@ import ca.sait.utilities.VolumeCompare;
  * @version 28th September 2022
  */
 public class ApplicationDriver {
+	private static String errorMessage = "Program Teriminated because a wrong value('s) was passed into the arguments, please follow the following format. \n"
+			+ "Three arguments. -f/F(Followed by the file location), -s/-S(Followed by the Sorting Type), -t/-T(Followed by the compare type).";
 
 	/**
 	 * The main method.
@@ -37,11 +39,11 @@ public class ApplicationDriver {
 		// Loads shapes into an array
 
 		try {
-			
+
 			fileName = parsedArgs[0];
 			compareType = parsedArgs[1];
 			sortingType = parsedArgs[2];
-			
+
 			shapesArray = testingManager.loadShapesIntoArray(fileName);
 
 			// Send through the array to be sorted based on the sort type
@@ -94,9 +96,9 @@ public class ApplicationDriver {
 				System.out.println("The sort took " + (stop - start) + "ms");
 			}
 		} catch (NullPointerException e) {
-			System.out.println("Program Teriminated because a wrong values was passed into the arguments");
+			System.out.println(errorMessage);
 		} catch (StringIndexOutOfBoundsException e) {
-			System.out.println("Program Teriminated because a wrong values was passed into the arguments");
+			System.out.println(errorMessage);
 		}
 	}
 }
