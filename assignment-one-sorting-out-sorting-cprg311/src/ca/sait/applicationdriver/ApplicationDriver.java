@@ -27,7 +27,7 @@ public class ApplicationDriver {
 		String fileName = "";
 		String compareType = "";
 		String sortingType = "";
-		long start = 0;
+		long start = 0
 		long stop = 0;
 		Shape[] shapesArray = null;
 
