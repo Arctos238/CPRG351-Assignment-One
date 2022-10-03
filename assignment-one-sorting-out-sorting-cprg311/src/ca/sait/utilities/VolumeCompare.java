@@ -15,7 +15,7 @@ public class VolumeCompare implements Comparator<Shape> {
 	 *
 	 * @param shape1 the shape 1
 	 * @param shape2 the shape 2
-	 * @return the int
+	 * @return the int for the comapre
 	 */
 	@Override
 	public int compare(Shape shape1, Shape shape2) {

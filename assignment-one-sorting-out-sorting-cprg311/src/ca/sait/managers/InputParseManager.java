@@ -2,7 +2,6 @@ package ca.sait.managers;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
@@ -29,7 +28,6 @@ public class InputParseManager {
 	 */
 	public String[] parseArgs(String[] args) {
 		String[] parsedArgs = new String[3];
-		
 		try {
 			for (String arg : args) {
 				if (arg.toUpperCase().startsWith("-F")) {
@@ -86,7 +84,7 @@ public class InputParseManager {
 					default:
 						System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:\n"
 								+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
-								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(My Choice Sort" + "\n");
+								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(Heap Sort)" + "\n");
 					}
 				}
 			}
@@ -153,7 +151,6 @@ public class InputParseManager {
 			System.out.println("Method does not exist.");
 			
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			System.out.println("Object cannot be instantiated.");

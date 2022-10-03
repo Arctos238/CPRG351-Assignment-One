@@ -1,6 +1,5 @@
-package ca.sait.applicationDriver;
+package ca.sait.applicationdriver;
 
-import java.io.FileNotFoundException;
 
 import ca.sait.managers.InputParseManager;
 import ca.sait.shapeDomain.Shape;
