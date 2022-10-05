@@ -1,7 +1,6 @@
 package ca.sait.managers;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
@@ -118,9 +117,9 @@ public class InputParseManager {
 		
 		try {
 			//removes the quotation marks on the input file
-			String defFileName = fileName.replace("\"", "");
-			
-			Scanner inputScanner = new Scanner(new FileReader(defFileName));
+			String inputFileLocation = fileName.replace("\"", "");
+			File file = new File(inputFileLocation);
+			String defFileName = file.getAbsolutePath();
 
 			Shape[] shapesArray = new Shape[inputScanner.nextInt()];
 
