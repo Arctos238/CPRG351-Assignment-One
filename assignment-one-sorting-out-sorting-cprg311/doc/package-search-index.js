@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ca.sait.applicationDriver"},{"l":"ca.sait.managers"},{"l":"ca.sait.shapeDomain"},{"l":"ca.sait.utilities"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ca.sait.applicationdriver"},{"l":"ca.sait.managers"},{"l":"ca.sait.shapeDomain"},{"l":"ca.sait.utilities"}];updateSearchResults();

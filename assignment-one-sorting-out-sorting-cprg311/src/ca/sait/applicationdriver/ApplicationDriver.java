@@ -55,8 +55,8 @@ public class ApplicationDriver {
 				stop = System.currentTimeMillis();
 
 				for (int i = 0; i < shapesArray.length; i++) {
-					if (i == 0 || i % 1000 == 0 || i == shapesArray.length - 1) {
-						System.out.println(shapesArray[i].calBaseArea());
+					if (i == 0 || (i + 1) % 1000 == 0 || i == shapesArray.length - 1) {
+						System.out.println("Shape " + (i + 1)+ ": " + shapesArray[i].calBaseArea());
 					}
 				}
 
@@ -68,8 +68,8 @@ public class ApplicationDriver {
 				stop = System.currentTimeMillis();
 
 				for (int i = 0; i < shapesArray.length; i++) {
-					if (i == 0 || i % 1000 == 0 || i == shapesArray.length - 1) {
-						System.out.println(shapesArray[i].getHeight());
+					if (i == 0 || (i + 1) % 1000 == 0 || i == shapesArray.length - 1) {
+						System.out.println("Shape " + (i + 1) + ": " + shapesArray[i].getHeight());
 					}
 				}
 
@@ -82,8 +82,8 @@ public class ApplicationDriver {
 				stop = System.currentTimeMillis();
 
 				for (int i = 0; i < shapesArray.length; i++) {
-					if (i == 0 || i % 1000 == 0 || i == shapesArray.length - 1) {
-						System.out.println(shapesArray[i].calVolume());
+					if (i == 0 || (i + 1) % 1000 == 0 || i == shapesArray.length - 1) {
+						System.out.println("Shape " + (i + 1) + ": " + shapesArray[i].calVolume());
 					}
 				}
 
