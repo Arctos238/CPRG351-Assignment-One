@@ -28,6 +28,11 @@ public class InputParseManager {
 	 */
 	public String[] parseArgs(String[] args) {
 		String[] parsedArgs = new String[3];
+		
+		if (args.length != 3) {
+			System.out.println("Please enter three arguments\n");
+			return null;
+		}
 		try {
 			for (String arg : args) {
 				if (arg.toUpperCase().startsWith("-F")) {
