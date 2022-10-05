@@ -25,7 +25,7 @@ Once the program has been downloaded from the internet and unzipped, the user wi
 		c.Input -s/S and then with no spaces the type of sorting algorithm that you wish to use options are b/B (Bubble Sort), i/I (Insertion Sort), s/S (Selection Sort), 
 		  m/M (Merge Sort), q/Q (Quick Sort), z/Z (Heap Sort) ie. "-Sz" "-sB".
 	4. Once this has been complete it should look similar to this "-fres/polyfor3.txt -sB -Th" or this "java -jar sort.jar -ta -sQ -f"res\polyfor3".txt"
-	5. Press enter and the program will run.
+	5. Press enter and the program will run
 
 Once the user has chosen how they want the code to be run, the program will give the user the time that it took for the code to run in milliseconds, as well as the first and last 
 value along with the value at the 1000th index, and sort all the numbers into a list from largest to smallest (in descending order). Each time will vary depending on the algorithm 
