@@ -14,7 +14,7 @@ import ca.sait.shapeDomain.Shape;
  *
  */
 public class InputParseManager {
-	private final String[] STRING_ARRAY_FILE_NAMES = { "polyfor1", "polyfor2", "polyfor3" };
+	private final String[] STRING_ARRAY_FILE_NAMES = { "polyfor1.txt", "polyfor2.txt", "polyfor3.txt" };
 
 	/**
 	 * 
@@ -27,21 +27,24 @@ public class InputParseManager {
 	 */
 	public String[] parseArgs(String[] args) {
 		String[] parsedArgs = new String[3];
-		
+
 		if (args.length != 3) {
-			System.out.println("Please enter three arguments\n");
+			System.out
+					.println("Incorrect amount of arguments, please enter exactly three arguments in the arguments\n");
 			return null;
 		}
 		try {
 			for (String arg : args) {
 				if (arg.toUpperCase().startsWith("-F")) {
-					int indexOfFileName = arg.indexOf("polyfor");
+					int indexOfFileName = arg.toUpperCase().indexOf("-F");
 
 					if (indexOfFileName != -1) {
-						parsedArgs[0] = "res/" + arg.substring(indexOfFileName, (indexOfFileName + 8)) + ".txt";
+						String parsedFileLocation = arg.substring(2);
+						parsedArgs[0] = parsedFileLocation;
 					} else {
+
 						System.out.println(
-								"Please enter a correct file path (-f/-F) that contains one of theses three file name:\n"
+								"Please enter (-f/-F) and correct file path that contains one of theses three file name:\n"
 										+ STRING_ARRAY_FILE_NAMES[0] + " or " + STRING_ARRAY_FILE_NAMES[1] + " or "
 										+ STRING_ARRAY_FILE_NAMES[2] + "\n");
 					}
@@ -86,19 +89,22 @@ public class InputParseManager {
 						parsedArgs[2] = "Z";
 						break;
 					default:
-						System.out.println("Please enter a correct sort type (-s/-S) that is equal to one of theses values:\n"
-								+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
-								+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(Heap Sort)" + "\n");
+						System.out.println(
+								"Please enter a correct sort type (-s/-S) that is equal to one of theses values:\n"
+										+ "b/B (Bubble Sort) or s/S (Selection Sort) or i/I (Insertion Sort "
+										+ "m/M (Merge Sort) or q/Q (Quick Sort) or z/Z(Heap Sort)" + "\n");
 					}
 				}
 			}
 			return parsedArgs;
-		} catch (StringIndexOutOfBoundsException e) {
-			
+		} catch (
+
+		StringIndexOutOfBoundsException e) {
+
 		}
-		
+
 		return null;
-		
+
 	}
 
 	/**
@@ -107,27 +113,27 @@ public class InputParseManager {
 	 *                 be located
 	 * @return The shape array filled with all the shapes
 	 * 
-	 *         Uses reflection to generate each shape based on the type of shape string
-	 *         passed in the file and the creates that shape passed on the parameters in the file.
-	 *         Then it will put that shape type into a shape array.
+	 *         Uses reflection to generate each shape based on the type of shape
+	 *         string passed in the file and the creates that shape passed on the
+	 *         parameters in the file. Then it will put that shape type into a shape
+	 *         array.
 	 * 
 	 */
 	public Shape[] loadShapesIntoArray(String fileName) {
-		
-		
-		try {
-			//removes the quotation marks on the input file
-			String inputFileLocation = fileName.replace("\"", "");
-			File file = new File(inputFileLocation);
-			String defFileName = file.getAbsolutePath();
 
-			Shape[] shapesArray = new Shape[inputScanner.nextInt()];
+		try {
+			// removes the quotation marks on the input file
+
+			File file = new File(fileName);
+			Scanner fileScanner = new Scanner(file);
+
+			Shape[] shapesArray = new Shape[fileScanner.nextInt()];
 
 			int i = 0;
 
-			while (inputScanner.hasNext()) {
+			while (fileScanner.hasNext()) {
 
-				String className = "ca.sait.shapeDomain." + inputScanner.next();
+				String className = "ca.sait.shapeDomain." + fileScanner.next();
 				Class classType = Class.forName(className);
 
 				Class paramType[] = new Class[2];
@@ -137,18 +143,18 @@ public class InputParseManager {
 				Constructor constructor = classType.getConstructor(paramType);
 
 				Object argList[] = new Object[2];
-				argList[0] = inputScanner.nextDouble();
-				argList[1] = inputScanner.nextDouble();
+				argList[0] = fileScanner.nextDouble();
+				argList[1] = fileScanner.nextDouble();
 
 				Shape shape = (Shape) constructor.newInstance(argList);
 
 				shapesArray[i] = shape;
 				i++;
 			}
+			
+			fileScanner.close();
 			return shapesArray;
 
-		} catch (FileNotFoundException e) {
-			System.out.println("File does not exist. Please make sure the file is in the system.");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Invalid class. The class name does not exist.");
 		} catch (NoSuchMethodException e) {
@@ -161,11 +167,11 @@ public class InputParseManager {
 		} catch (IllegalAccessException e) {
 			System.out.println("Method cannot reach the object.");
 		} catch (IllegalArgumentException e) {
-			System.out.println("Invalid argument.");	
+			System.out.println("Invalid argument.");
 		} catch (InvocationTargetException e) {
 			System.out.println("Invoked method or constructor");
 		} catch (NullPointerException e) {
-			System.out.println("Invalid input, please enter an existing file name");		
+			System.out.println("Invalid input, please enter an existing file name");
 		} catch (Exception e) {
 			System.out.println("An exception was caught.");
 		}
