@@ -40,6 +40,9 @@ public class InputParseManager {
 
 					if (indexOfFileName != -1) {
 						String parsedFileLocation = arg.substring(2);
+						if (parsedFileLocation.startsWith("polyfor")) {
+							parsedFileLocation = "res\\" + parsedFileLocation;
+						}
 						parsedArgs[0] = parsedFileLocation;
 					} else {
 
